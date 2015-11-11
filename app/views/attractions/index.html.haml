@@ -1,0 +1,28 @@
+%h1 All Attractions
+= form_tag '/attractions', :method => :get do
+  = text_field_tag :search_form, params[:search_form]
+  = submit_tag 'Search Attractions'
+%table#attractions
+  -if @attractions.presence
+    %thead
+      %tr
+        %th Name
+        %th Description
+        %th Rating
+        %th Entry
+        %th Web
+        %th More Info
+    %tbody
+      - @attractions.each do |attraction|
+        %tr
+          %td= attraction.name
+          %td= attraction.description
+          %td= attraction.rating
+          %td= attraction.entry
+          %td= attraction.web
+          %td= link_to "More about #{attraction.name}", attraction_path(attraction)
+  -else
+    %b "Your Search Returned no results"
+%br
+= link_to 'Home Page',attractions_homePage_path
+= link_to 'Add New Attraction', new_attraction_path

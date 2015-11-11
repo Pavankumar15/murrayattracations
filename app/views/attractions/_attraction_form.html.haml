@@ -1,0 +1,16 @@
+- unless @attraction.errors.empty?
+  #warning
+    Errors prevented this movie from being #{controller.action_name}d:
+    %ul
+      - @attraction.errors.full_messages.each do |error|
+        %li= error
+= label :attraction, :name, 'Name'
+= text_field :attraction, :name
+= label :attraction, :description, 'Description'
+= text_field :attraction, :description
+= label :attraction, :rating, 'Rating'
+= select :attraction, :rating, Attraction.all_ratings
+= label :attraction, :entry, 'Entry'
+= text_field :attraction, :entry
+= label :attraction, :web, 'Web'
+= text_field :attraction, :web

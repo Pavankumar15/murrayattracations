@@ -1,0 +1,18 @@
+%h1 Attraction Details
+%i Details about #{@attraction.name}
+%ul#details
+    %li 
+        %b Description:
+        = @attraction.description
+    %li 
+        %b Rating:
+        = @attraction.rating
+    %li 
+        %b Entry:
+        = @attraction.entry
+    %li
+        %b Web:
+        = @attraction.web
+    =link_to 'Edit Attraction', edit_attraction_path(@attraction)
+    =link_to 'Delete Attraction', attraction_path(@attraction), :method => :delete
+    =link_to 'Back To Attraction List', attractions_path

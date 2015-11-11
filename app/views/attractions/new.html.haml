@@ -1,0 +1,5 @@
+%h1 Add New Attraction
+
+= form_tag attractions_path, :method => :post do
+  = render :partial => 'attraction_form'
+  = submit_tag 'Save Changes'
